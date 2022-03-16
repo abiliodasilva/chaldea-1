@@ -72,10 +72,13 @@ class AppRouterDelegate extends RouterDelegate<RouteConfiguration>
     if (_pages.isEmpty) {
       _pages.add(RouteConfiguration.home().createPage());
     }
-    return Navigator(
-      key: navigatorKey,
-      pages: List.of(_pages),
-      onPopPage: onPopPage,
+    return Container(
+      key: UniqueKey(),
+      child: Navigator(
+        key: navigatorKey,
+        pages: List.of(_pages),
+        onPopPage: onPopPage,
+      ),
     );
   }
 
